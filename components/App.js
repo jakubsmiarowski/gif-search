@@ -29,16 +29,16 @@ App = React.createClass({
             /div>
         );
     }
-    handleSearch: function(searchingText) { // 1.
+    handleSearch: function(searchingText) {
         this.setState({
-            loading: true // 2.
-        })
-        this.getGif(searchingText, function(gif) { // 3.
-            this.setState({ // 4
-                loading: false, // a
-                gif: gif, // b
-                searchingText: searchingText // c
-            })
+            loading: true
+        });
+        this.getGif(searchingText, function(gif) {
+            this.setState({
+                loading: false,
+                gif: gif,
+                searchingText: searchingText
+            });
         }.bind(this));
     },
 

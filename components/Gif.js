@@ -22,8 +22,8 @@ Gif = React.createClass({
             src = { url }
             style = {
                 { width: '100%', maxWidth: '350px' } }
-            /> <
-            /a> <
+            />  <
+            /a>  <
             /div>
         );
     }
