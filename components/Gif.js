@@ -46,5 +46,4 @@ class Gif extends React.Component{
       </div>
     );
   }
-
 }

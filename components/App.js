@@ -24,23 +24,25 @@ App = React.createClass({
 
  getGif: function(searchingText){
      return new Promise(
-        var xhr = new XMLHttpRequest();  
-        xhr.open('GET', url);
-        xhr.onload = function(){
-            if(xhr.status === 200) {
-                var data = JSON.parse(xhr.responseText).data;
-                var gif = {
-                    url: data.fixed_width_downsampled_url,
-                    sourceUrl: dataurl
-                };
-                resolve(gif);
-            }   else{
-                    reject (new Error('Error'));
+        (resolve,reject) => {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText).data;
+                    var gif = {
+                        url: data.fixed_width_downsampled_url,
+                        sourceUrl: data.url
+                    };
+                    resolve(gif);
+                } else {
+                    reject(new Error ('Error'));
                 }
-                xhr.send();
-            }
-        )
-    }
+            };
+            xhr.send();
+        }
+    )
+},
 
  render: function() {
 
